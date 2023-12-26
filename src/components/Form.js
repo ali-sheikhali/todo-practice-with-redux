@@ -14,7 +14,6 @@ function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
     dispatch(addTodo(title));
     setTitle("")
   };
@@ -28,6 +27,8 @@ function Form() {
         <label className="mt-2">To do: </label>
         <input
           type="text"
+          placeholder="Enter todo..."
+          value={title}
           className="border border-black focus:outline-none rounded-md p-2 w-8/12"
           onChange={handleChange}
         />

@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { removeTodo } from "../redux/reducer";
 function TodoList() {
   const todos = useSelector((state) => state.todos);
+ 
   const dispatch = useDispatch();
-  
+
   const DeleteHandle = (id) => {
     dispatch(removeTodo(id));
   };
@@ -15,8 +15,10 @@ function TodoList() {
       {todos.map((todo) => {
         return (
           <div className="border px-5 py-2 flex justify-between " key={todo.id}>
-            {todo.id}
+            <div className="">
+            <input type="checkbox" className="mr-5" />
             {todo.title}
+            </div>
             <button
               type="submit"
               onClick={() => DeleteHandle(todo.id)}
